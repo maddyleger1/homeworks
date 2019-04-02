@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HW02 - Task 3</title>
+	<style>
+		.leftcolumn {
+			width: 33%;
+			float: left;
+			text-align: center;
+		}
+
+		.rightcolumn {
+			width: 67%;
+			float: right;
+		}
+
+		.clearfix::after {
+		    content: "";
+		    clear: both;
+		    display: table;
+		}
+
+	</style>
+</head>	
+<body>
+	<div><h1 style="text-align:center">HW03 Task Three</h1></div>
+	<div class="clearfix">
+		<div class="leftcolumn">
+			<a href="#" onclick="display_lorem_ipsum();return false;">Lorem Ipsum</a><br><br>
+			<a href="#" onclick="display_99bottles();return false;">99 Bottles</a><br><br>
+			<a href="#" onclick="display_last_thing();return false;">Last Thing</a><br><br>
+		</div>
+		<div class="rightcolumn">
+			<p id="placeholder"></p>
+		</div>
+	</div>
+
+<script>
+
+	/**
+	 * Displays 4 paragraphs of lorem ipsum text
+	**/
+	function display_lorem_ipsum() {
+		// Get rid of current right column
+		clear_placeholder();
+
+		// get the placeholder div
+		var ph = document.getElementById("placeholder");
+
+		// yay, no plagarism!
+		var attribution = document.createElement("a");
+		attribution.href="https://en.wikipedia.org/wiki/Lorem_ipsum";
+		attribution.textContent = "Attribution";
+		ph.appendChild(attribution);
+
+		// for 4 paragraphs of text - create the element
+		// create the text element
+		// append that to the placeholder
+		for (var i=0; i<4; i++) {
+			var paragraph = document.createElement("p");
+			var text = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+			paragraph.appendChild(text);
+			ph.appendChild(paragraph);
+		}
+	}
+	
+	/**
+	 * Put in the first 4 verses of 99 bottles of beer
+	**/ 
+	function display_99bottles() {
+		clear_placeholder();
+
+		var ph = document.getElementById("placeholder");
+
+		var attribution = document.createElement("a");
+		attribution.href= "https://en.wikipedia.org/wiki/99_Bottles_of_Beer";
+		attribution.textContent = "Attribution";
+		ph.appendChild(attribution);
+
+		for (var bottles=99; bottles>95; bottles--) {
+			var verse = document.createElement("p");
+			var text = document.createTextNode(String(bottles) + " bottles of beer on the wall, " 
+					+ String(bottles) + " bottles of beer, you take one down, pass it around, "
+				   	+ String(bottles-1) + " bottles of beer on the wall" );
+			verse.appendChild(text);
+			ph.appendChild(verse);
+		}	
+	}
+	
+	/**
+	 * Yay this one is easy!!!
+	**/
+	function display_last_thing() {
+		clear_placeholder();
+		document.getElementById("placeholder").innerHTML = "this is the third thing";
+	}
+
+	function clear_placeholder() {
+		document.getElementById("placeholder").innerHTML = "";
+	}
+</script>
+</body>
+</html>

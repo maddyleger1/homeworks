@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HW02 - Task 2</title>
+	<style>
+		.footer {
+			bottom: 0;
+			position: absolute;
+		}
+	</style>
+</head>	
+<body>
+	<h1 id="headnum">10</h1>
+	<button type="button" onclick="alert_popup()">Alert!</button>
+	<button type="button" onclick="increment_num()">Increment!</button>
+	<button type="button" onclick="append_to_bottom()">Append!</button>
+	<!-- placeholder for adding to bottom of page -->
+	<div id="bottomdiv" class="footer"></div>
+
+<script>
+
+	/**
+	 * Uses built in js alert function to display headnum
+	**/
+	function alert_popup() {
+		alert(document.getElementById("headnum").innerHTML)
+	}
+
+	/**
+	 * Increments the headnum by treating it as an int
+	 * then incrementing it with simple addition
+	**/
+	function increment_num() {
+		var numholder = document.getElementById("headnum");
+		var num = numholder.innerHTML;
+		numholder.innerHTML = parseInt(num) + 1;
+	}
+	
+	/**
+	 * Appends the number held in the "headnum" header
+	 * to the bottom of the page, by creating a paragraph element,
+	 * adding the value held in headnum to that paragraph,
+	 * then adding that paragraph to the setup footer div
+	**/
+	function append_to_bottom() {
+		var num_display = document.createElement("p");
+		var num = document.getElementById("headnum").innerHTML;
+		num_display.innerHTML = num;
+		document.getElementById("bottomdiv").appendChild(num_display);	
+	}
+</script>
+</body>
+</html>

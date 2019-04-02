@@ -1,0 +1,15 @@
+/* This file is for your main application css. */
+
+@import "bootstrap";
+
+h1 { text-align: center; }
+
+.tile {
+	padding: 30px;
+	font-size: 30px;
+	margin-right: 30px;
+}
+
+.tile-row {
+	margin: 20px;	
+}
